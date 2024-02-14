@@ -1,0 +1,22 @@
+package view
+
+import "github/patrickchap/booktalk/view/layout"
+import "github/patrickchap/booktalk/model"
+
+templ Browse(books []model.Book) {
+	@layout.Base() {
+		<div class="h-full">
+			<h1 class="text-4xl text-gray-300">Browse</h1>
+			<div class="grid grid-cols-4 gap-1 gap-y-3.5 text-gray-300">
+				for _, b := range books {
+					<div class="flex flex-col items-center">
+						<h2>{ b.Title }</h2>
+						<h3>{ b.Author }</h3>
+						<h4>{ b.ISBN }</h4>
+						<img src={ b.Thumbnail }/>
+					</div>
+				}
+			</div>
+		</div>
+	}
+}
